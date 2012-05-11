@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<meta charset="utf-8">
+	<title>Canvas</title>
+</head>
+<body>
+	<div id="wrap">
+		מגישים: דניאל בראון ואלעד הרמב"ם, שנה ג'
+		<div id="menubar">
+			<button id="line">קו</button>
+			 | 
+			<button id="circle">מעגל</button>
+			 | 
+			<button id="polygon">מצולע משוכלל</button>
+			<label>מס' צלעות: </label>
+			20<input type="range" id="polygon_edges" value="5" min="1" max="20" title="5">1
+			 | 
+			<button id="bezier">עקומת בזייה</button>
+			<label>קווים: </label>
+			100<input type="range" id="curve_edges" value="50" min="1" max="100" title="50"/>1
+			 | 
+			<button id="clear">נקה</button>
+			<span style="float:left;">  | </span>
+			<span id="coordinates">x,y</span>
+			
+		</div>
+		<canvas id="canvas" width="800" height="600"></canvas>
+	</div>
+</body>
+</html>
+
