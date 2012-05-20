@@ -2,33 +2,41 @@
 <html dir="rtl">
 <head>
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="js/base.js"></script>
+	<script type="text/javascript" src="js/canvas.js"></script>
+	<script type="text/javascript" src="js/jscolor/jscolor.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<meta charset="utf-8">
 	<title>Canvas</title>
 </head>
 <body>
 	<div id="wrap">
-		מגישים: דניאל בראון ואלעד הרמב"ם, שנה ג'
+		<a href="js/canvas.coffee" target="_blank">מקור קריא</a>
 		<div id="menubar">
 			<button id="line">קו</button>
 			 | 
 			<button id="circle">מעגל</button>
-			 | 
-			<button id="polygon">מצולע משוכלל</button>
-			<label>מס' צלעות: </label>
-			20<input type="range" id="polygon_edges" value="5" min="1" max="20" title="5">1
-			 | 
-			<button id="bezier">עקומת בזייה</button>
-			<label>קווים: </label>
-			100<input type="range" id="curve_edges" value="50" min="1" max="100" title="50"/>1
-			 | 
+			 | | 
+			<button id="translation">הזזה</button>
+			<button id="scaling">סילום</button>
+			<button id="rotation">סיבוב</button>
+			<button id="shearing-x">גזירה-x</button>
+			<button id="shearing-y">גזירה-y</button>
+			<button id="reflection-x">שיקוף-x</button>
+			<button id="reflection-y">שיקוף-y</button> | 
+			<input class="color" value="#000000">
+			<button id="undo">בטל</button> | 
+			<button id="boat">
+				<img src="images/boat.gif">
+			</button>
 			<button id="clear">נקה</button>
 			<span style="float:left;">  | </span>
 			<span id="coordinates">x,y</span>
-			
+			<br>
+			הפעולות נעשות באמצעות לחיצה וגרירת העכבר
 		</div>
 		<canvas id="canvas" width="800" height="600"></canvas>
+		הציור מתעדכן אוטומטית בהתאם לערכים בתיבת הטקסט, ולהיפך.
+		<textarea id="json"></textarea>
 	</div>
 </body>
 </html>
