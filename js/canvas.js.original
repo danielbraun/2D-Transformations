@@ -1,0 +1,70 @@
+function Canvas() {
+	// Properties
+	this.shapes = [];
+	this.clear = function () {
+		this.shapes = [];
+	};
+	
+	this.addShape = function(shape) {
+		this.shapes.push(shape);
+	}
+
+}
+
+function CanvasView(canvas_element_id) {
+	// Properties
+	this.canvas = $("#" + canvas_element_id);
+	var ctx = this.canvas[0].getContext("2d");
+
+	// Methods
+	this.put_pixel = function(p1) {
+		ctx.fillstyle = "#FF";
+		ctx.fillRect(p1.x, p1.y, 1, 1);
+	}
+	this.render = function (shapes) {
+		for (i in shapes) {
+			shapes[i].render(this.put_pixel);
+		}
+	}
+	this.clear = function () {
+		ctx.clearRect(0, 0, this.canvas[0].width, this.canvas[0].height);
+	}
+}
+
+
+function CanvasController(canvas_model, canvas_view) {
+	// Constructor
+	var model = canvas_model;
+	var view = canvas_view;
+	var canvas = canvas_view.canvas;
+
+	// Main
+	$(function() {
+		line1 = new Line(new Point(600, 600), new Point(0, 0));
+		model.addShape(line1);
+		circle1 = new Circle(new Point(200, 200), new Point(300, 300));
+		model.addShape(circle1);
+		view.render(model.shapes);
+	})
+
+	// UI Bindings
+	canvas.mousemove(function(e) {
+		x = e.pageX - this.offsetLeft;
+		y = e.pageY - this.offsetTop;
+		$("#coordinates").html(y + " ," + x);
+	});
+
+	$("#clear").click(function() {
+		model.clear();
+		view.clear();
+	});
+}
+
+
+function Point(x, y) {
+	this.x = x;
+	this.y = y;
+}
+
+
+// Main function
